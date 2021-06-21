@@ -1,0 +1,30 @@
+
+
+
+  <div class="card-container">
+    <input type="file" id="excelfile" name="excelfile" accept=".xls , .xlsx" (change)="filetoBase64($event.target.files)" #inputFile> 
+    <button type="button" class="btn btn-danger pull-left" (click)="uploadfile()" >Upload</button> 
+  </div>
+  
+<div [ngClass]="{'text-success': error === 'success', 'text-danger' : error != 'success' }">{{error}}</div>
+       
+              <table class="table table-striped table-responsive center">
+                <tr>
+                      <th>sku</th>
+                      <th>Product Name</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Condition</th>
+                      <th>ISBN</th>
+                    </tr>
+                    <tr *ngFor="let h of InventoryList">
+                        <td>{{h.sku}}</td>
+                        <td>{{h.product_name}}</td>
+                        <td>{{h.quantity}}</td>
+                        <td>{{h.price}}</td>
+                        <td>{{h.condition}}</td>
+                        <td>{{h.isbn}}</td>
+                      
+                    </tr>
+                </table>
+            
